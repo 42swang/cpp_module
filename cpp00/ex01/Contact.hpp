@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 17:14:27 by swang             #+#    #+#             */
-/*   Updated: 2022/01/26 23:46:54 by swang            ###   ########.fr       */
+/*   Updated: 2022/01/27 00:25:18 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ public :
 	void	print_table();
 	void	print_search();
 	void	print_contact(const char *, int length);
-	void	replace_new();
 };
 
 #endif
