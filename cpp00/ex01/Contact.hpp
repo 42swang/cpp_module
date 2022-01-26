@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 17:14:27 by swang             #+#    #+#             */
-/*   Updated: 2022/01/26 20:00:47 by swang            ###   ########.fr       */
+/*   Updated: 2022/01/26 23:46:54 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,11 @@ public :
 	void	init_contact();
 	void	set_index(int i);
 	int		get_index();
-	void	set_contact(int	i);
-//	void	prinf_contact();
+	void	set_contact();
+	void	print_table();
+	void	print_search();
+	void	print_contact(const char *, int length);
+	void	replace_new();
 };
 
 #endif

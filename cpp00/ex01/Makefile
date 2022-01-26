@@ -6,26 +6,27 @@
 #    By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/26 11:34:46 by swang             #+#    #+#              #
-#    Updated: 2022/01/26 20:04:10 by swang            ###   ########.fr        #
+#    Updated: 2022/01/26 20:37:20 by swang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = PhoneBook.cpp
+NAME = PhoneBook
 
-CLANG = c++
+FLAGS = -Wall -Wextra -Werror
 
-CPPFLAGS = -Wall -Wextra -Werror
-
-SRCS =	Contact.cpp\
-		PhoneBook.cpp\
+SRCS =	PhoneBook.cpp\
+		Contact.cpp\
 		main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
+.cpp.o :
+	c++ $(FLAGS) -c $< -o $@
+
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-		$(CLANG) $(CPPFLAGS) $(SRCS) -o $(NAME)
+		c++ $(FLAGS) $(OBJS) -o $(NAME)
 
 clean :
 		rm -rf $(OBJS)
@@ -33,6 +34,6 @@ clean :
 fclean : clean
 		rm -rf $(NAME)
 
-re : fclean $(NAME)
+re : fclean all
 
 .PHONY : all clean fclean re
