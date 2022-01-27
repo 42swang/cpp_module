@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 18:36:44 by swang             #+#    #+#             */
-/*   Updated: 2022/01/26 23:02:13 by swang            ###   ########.fr       */
+/*   Updated: 2022/01/27 12:20:04 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,24 @@ void	Contact::set_contact()
 {
 	std::cout << "Enter first_name : ";
 	std::cin >> first_name;
+	if (std::cin.eof())
+		return ;
 	std::cout << "Enter last_name : ";
 	std::cin >> last_name;
+	if (std::cin.eof())
+		return ;
 	std::cout << "Enter nick_name : ";
 	std::cin >> nick_name;
+	if (std::cin.eof())
+		return ;
 	std::cout << "Enter phone_number : ";
 	std::cin >> phone_number;
+	if (std::cin.eof())
+		return ;
 	std::cout << "Enter darkest_secret : ";
 	std::cin >> darkest_secret;
+	if (std::cin.eof())
+		return ;
 }
 
 void	Contact::print_contact(const char *str, int length)
@@ -76,9 +86,9 @@ void	Contact::print_table()
 
 void	Contact::print_search()
 {
-	std::cout << first_name << std::endl;
-	std::cout << last_name << std::endl;
-	std::cout << nick_name << std::endl;
-	std::cout << phone_number << std::endl;
-	std::cout << darkest_secret << std::endl;
+	std::cout << "first_name : " << first_name << std::endl;
+	std::cout << "last_name : " << last_name << std::endl;
+	std::cout << "nick_name : " << nick_name << std::endl;
+	std::cout << "phone_number : " << phone_number << std::endl;
+	std::cout << "darkest_secret : " << darkest_secret << std::endl;
 }

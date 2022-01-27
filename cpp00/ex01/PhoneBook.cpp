@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 20:05:50 by swang             #+#    #+#             */
-/*   Updated: 2022/01/27 00:04:28 by swang            ###   ########.fr       */
+/*   Updated: 2022/01/27 12:44:03 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,22 @@ void	PhoneBook::search_contact()
 	{
 		std::cout << "Please Enter Index : ";
 		std::cin >> search_num;
-		if (std::cin.fail())
+		if (std::cin.eof())
+			return ;
+		else if (std::cin.fail())
 		{
 			std::cin.clear();
 			std::cin.ignore(INT_MAX, '\n');
 			std::cout << "Please Enter Number\n";
 		}
+		else if (search_num == 0)
+			return ;
 		else if (search_num < i + 1)
 		{
 			contact[search_num - 1].print_search();
 			return ;
 		}
 		else
-			std::cout << "Please Enter Right Index\n";
+			std::cout << "Nothing.. Enter 0 : go back\n";
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 16:57:23 by swang             #+#    #+#             */
-/*   Updated: 2022/01/26 23:04:15 by swang            ###   ########.fr       */
+/*   Updated: 2022/01/27 12:18:58 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,22 @@ int	main()
 	{
 		std::cout << "> ";
 		std::cin >> input;
-		if (std::cin.fail()) //fail말고 플래그 찾아보기
+		if (std::cin.eof())
 		{
-			std::cin.clear();
-			std::cin.ignore(INT_MAX, '\n'); // 무시할 최대 글자 수, 근데 개행문자 전까지 무시함 
-			std::cout << "강제종료 됩니다\n";
+			std::cout << "Quit\n";
 			return (0);
 		}
-		else if (input.compare(add) == 0)
+		if (input.compare(add) == 0)
 			swang_phonebook.add_contact();
 		else if (input.compare(search) == 0)
 			swang_phonebook.search_contact();
 		else if (input.compare(exit) == 0)
 			return (0);
 		else
-			std::cout << "잘못된 입력입니다" << std::endl;
+		{
+			std::cout << "Wrong Command" << std::endl;
+			std::cout << "Command : ADD, SEARCH, EXIT" << std::endl;
+		}
 	}
 	return (0);
 }
