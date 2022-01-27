@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 16:17:53 by swang             #+#    #+#             */
-/*   Updated: 2022/01/26 20:37:09 by swang            ###   ########.fr       */
+/*   Updated: 2022/01/27 14:19:18 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ public:
 	void	init_phonebook();
 	void	add_contact();
 	void	search_contact();
-	//void	remove_old_contact();
 };
 
 #endif

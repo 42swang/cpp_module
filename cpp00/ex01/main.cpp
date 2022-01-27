@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 16:57:23 by swang             #+#    #+#             */
-/*   Updated: 2022/01/27 12:18:58 by swang            ###   ########.fr       */
+/*   Updated: 2022/01/27 14:09:35 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main()
 			std::cout << "Quit\n";
 			return (0);
 		}
-		if (input.compare(add) == 0)
+		else if (input.compare(add) == 0)
 			swang_phonebook.add_contact();
 		else if (input.compare(search) == 0)
 			swang_phonebook.search_contact();

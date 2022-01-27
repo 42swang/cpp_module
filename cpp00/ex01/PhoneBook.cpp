@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 20:05:50 by swang             #+#    #+#             */
-/*   Updated: 2022/01/27 12:44:03 by swang            ###   ########.fr       */
+/*   Updated: 2022/01/27 14:16:17 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,6 @@ void	PhoneBook::search_contact()
 			return ;
 		}
 		else
-			std::cout << "Nothing.. Enter 0 : go back\n";
+			std::cout << "Nothing... Enter 0 : go back\n";
 	}
 }
