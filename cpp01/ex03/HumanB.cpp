@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 15:18:35 by swang             #+#    #+#             */
-/*   Updated: 2022/02/03 16:42:54 by swang            ###   ########.fr       */
+/*   Created: 2022/02/03 15:00:58 by swang             #+#    #+#             */
+/*   Updated: 2022/02/03 16:28:24 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
 #include "HumanB.hpp"
 
-int main()
+HumanB::HumanB(std::string name_)
 {
-  {
-    Weapon club1 = Weapon("crude spiked club");
-    HumanA bob("Bob", club1);
-    bob.attack();
-    club1.setType("some other type of club");
-    bob.attack();
-  }
-  {
-    Weapon club = Weapon("crude spiked club");
-    HumanB jim("Jim");
-    jim.setWeapon(club);
-    jim.attack();
-    club.setType("some other type of club");
-    jim.attack();
-  }
+	name = name_;
+}
+
+HumanB::~HumanB()
+{
+	
+}
+
+void	HumanB::setWeapon(Weapon& weapon_)
+{
+	weapon = &weapon_;
+}
+
+void	HumanB::attack()
+{
+	std::cout << name;
+	std::cout << " attaks with his ";
+	std::cout << weapon->getType() << std::endl;
 }
