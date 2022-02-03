@@ -6,13 +6,13 @@
 #    By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/03 13:10:31 by swang             #+#    #+#              #
-#    Updated: 2022/02/03 14:35:33 by swang            ###   ########.fr        #
+#    Updated: 2022/02/03 17:05:50 by swang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = violence
 
-CXX = C++
+CXX = c++
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
