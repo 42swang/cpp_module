@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:13:35 by swang             #+#    #+#             */
-/*   Updated: 2022/02/04 19:35:28 by swang            ###   ########.fr       */
+/*   Updated: 2022/02/04 20:06:30 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,26 @@ Karen::~Karen() {}
 
 void Karen::debug(void)
 {
-	std::cout << "DEBUG1\n";
+	std::cout << "[DEBUG]\n";
+	std::cout << "extensive CONTEXTUAL INFORMATION.\n";
 }
 
 void Karen::info(void)
 {
-	std::cout << "INFO2\n";
+	std::cout << "[INFO]\n";
+	std::cout << "contextual INFORMATION TO HELP TRACE execution in a production environment.\n";
 }
 
 void Karen::warning(void)
 {
-	std::cout << "WARNING3\n";
+	std::cout << "[WARNING]\n";
+	std::cout << "indicates a POTENTIAL PROBLEM in the system.\n";
 }
 
 void Karen::error(void)
 {
-	std::cout << "ERROR4\n";
+	std::cout << "[ERROR]\n";
+	std::cout << "indicates a SERIOUS PROBLEM in the system.\n";
 }
 
 void Karen::complain(std::string level)
