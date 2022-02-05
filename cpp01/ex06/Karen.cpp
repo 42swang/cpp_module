@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:13:35 by swang             #+#    #+#             */
-/*   Updated: 2022/02/04 20:06:46 by swang            ###   ########.fr       */
+/*   Updated: 2022/02/05 10:50:29 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void Karen::filter(std::string level)
 	}
 	if (idx == 5)
 	{
-		std::cout << "[ Probably complaining about insignificant problems ]\n";
+		std::cout << "[ insignificant problems ]\n";
 		return ;
 	}
 	switch(idx)
