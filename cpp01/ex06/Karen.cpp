@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:13:35 by swang             #+#    #+#             */
-/*   Updated: 2022/02/05 10:50:29 by swang            ###   ########.fr       */
+/*   Updated: 2022/02/05 10:59:46 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Karen::~Karen() {}
 void Karen::debug(void)
 {
 	std::cout << "[DEBUG]\n";
-	std::cout << "extensive CONTEXTUAL INFORMATION.\n";
+	std::cout << "extensive contextual INFORMATION.\n";
 }
 
 void Karen::info(void)
