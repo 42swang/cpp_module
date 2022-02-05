@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 16:56:38 by swang             #+#    #+#             */
-/*   Updated: 2022/02/04 19:34:42 by swang            ###   ########.fr       */
+/*   Updated: 2022/02/05 16:34:06 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@ int	main()
 {
 	Karen karen;
 
-	for (int i = 0; i < 4; i++)
-	{
-		karen.complain("DEBUG");
-		karen.complain("INFO");
-		karen.complain("WARNING");
-		karen.complain("ERROR");
-	}
+	karen.complain("DEBUG");
+	std::cout << "\n\n";
+	karen.complain("INFO");
+	std::cout << "\n\n";
+	karen.complain("WARNING");
+	std::cout << "\n\n";
+	karen.complain("ERROR");
+	std::cout << "\n\n";
 
 	return (0);
 }
