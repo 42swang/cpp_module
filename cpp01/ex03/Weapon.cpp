@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 14:44:01 by swang             #+#    #+#             */
-/*   Updated: 2022/02/03 15:14:07 by swang            ###   ########.fr       */
+/*   Updated: 2022/02/05 14:25:34 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ Weapon::Weapon(std::string w_type)
 
 const std::string& Weapon::getType()
 {
-	std::string& ref = type;
-	return (ref);
+	return (type);
 }
 
 void	Weapon::setType(std::string set_type)
@@ -30,5 +29,4 @@ void	Weapon::setType(std::string set_type)
 
 Weapon::~Weapon()
 {
-	
 }
