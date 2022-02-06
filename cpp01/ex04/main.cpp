@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 15:17:46 by swang             #+#    #+#             */
-/*   Updated: 2022/02/06 19:48:07 by swang            ###   ########.fr       */
+/*   Updated: 2022/02/06 21:53:11 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ int main(int argc, char **argv)
 	int	i;
 
 	if (argc != 4)
+	{
+		std::cout << "Check your argument\n";
 		return (0);
+	}
 	infile = argv[1];
 	outfile = infile;
 	s1 = argv[2];
@@ -38,12 +41,12 @@ int main(int argc, char **argv)
 	outfile.append(".replace");
 	if (s1.length() == 0)
 	{
-		std::cerr << "Error : s1 length must be zero\n";
+		std::cerr << "Error : s1 length zero\n";
 		return (0);
 	}
 	else if (infile.length() == 0)
 	{
-		std::cerr << "Error : file_name length must be zero\n";
+		std::cerr << "Error : file_name length zero\n";
 		return (0);
 	}
 	ifs.open(infile, std::ios::in);
@@ -68,11 +71,6 @@ int main(int argc, char **argv)
 		content.erase(i, s1.length());
 		content.insert(i, s2);
 		i += s2.length();
-	}
-	if (content.find(s1, i) == std::string::npos)
-	{
-		std::cout << "There's no string to replace\n";
-		return (0);
 	}
 	ofs.open(outfile, std::ios::out);
 	if (ofs.fail())
