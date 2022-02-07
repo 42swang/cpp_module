@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 15:17:46 by swang             #+#    #+#             */
-/*   Updated: 2022/02/06 21:53:11 by swang            ###   ########.fr       */
+/*   Updated: 2022/02/07 10:01:50 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int main(int argc, char **argv)
 	i = 0;
 	while (content.find(s1, i) != std::string::npos)
 	{
-		i = content.find(s1);
+		i = content.find(s1, i);
 		content.erase(i, s1.length());
 		content.insert(i, s2);
 		i += s2.length();
