@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:45:59 by swang             #+#    #+#             */
-/*   Updated: 2022/02/08 01:07:20 by swang            ###   ########.fr       */
+/*   Updated: 2022/02/08 15:31:01 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,19 @@ int main( void ) {
     std::cout << "b is " << b << std::endl;
     std::cout << "c is " << c << std::endl;
     std::cout << "d is " << d << std::endl;
-    
+    std::cout << std::endl;
+	
     std::cout << "a is " << a.toInt() << " as integer" << std::endl;
     std::cout << "b is " << b.toInt() << " as integer" << std::endl;
     std::cout << "c is " << c.toInt() << " as integer" << std::endl;
     std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+    std::cout << std::endl;
     
+	std::cout << "a is " << a.toFloat() << " as float point" << std::endl;
+    std::cout << "b is " << b.toFloat() << " as floating point" << std::endl;
+    std::cout << "c is " << c.toFloat() << " as floating point" << std::endl;
+    std::cout << "d is " << d.toFloat() << " as floating point" << std::endl;
+    std::cout << std::endl;
+
     return 0;
 }
