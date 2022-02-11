@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:27:11 by swang             #+#    #+#             */
-/*   Updated: 2022/02/09 23:26:27 by swang            ###   ########.fr       */
+/*   Updated: 2022/02/10 17:27:46 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << C_PRPL << "constructor(parameter of name) called... " << C_NRML;
-	std::cout << "ScavTrap " << C_BLUE << "<default> " << C_NRML << "appeard!!\n";
+	std::cout << "ScavTrap " << C_BLUE << "<" << name << "> " << C_NRML << "appeard!!\n";
 	_hitpoint = 100;
 	_energypoint = 50;
 	_attackdamage = 20;
@@ -59,7 +59,7 @@ ScavTrap::~ScavTrap()
 
 void	ScavTrap::attack(std::string const & target)
 {
-	std::cout << C_RED << "<" << this->_name << "> attack " << target << ", causing ";
+	std::cout << "<" << this->_name << "> attack " << target << ", causing ";
 	std::cout << this->_attackdamage <<" damage!\n" << C_NRML;
 }
 
