@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:27:11 by swang             #+#    #+#             */
-/*   Updated: 2022/02/10 17:27:46 by swang            ###   ########.fr       */
+/*   Updated: 2022/02/11 12:20:48 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,11 @@ void	ScavTrap::beRepaired(unsigned int amount)
 
 void	ScavTrap::guardGate()
 {
+	if (this->_hitpoint == 0)
+	{
+		std::cout << C_GREN<< "<" << _name << "> can't be GuardMode\n" << C_NRML;
+		return;
+	}
 	this->_guardmode = 1;
 	std::cout << C_GREN << "<" << _name << "> GuardMode ON\n" << C_NRML;
 }
