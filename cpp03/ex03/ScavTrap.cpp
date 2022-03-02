@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: swang <swang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:27:11 by swang             #+#    #+#             */
-/*   Updated: 2022/02/11 12:21:12 by swang            ###   ########.fr       */
+/*   Updated: 2022/02/23 15:39:05 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ ScavTrap::~ScavTrap()
 
 void	ScavTrap::attack(std::string const & target)
 {
-	std::cout << "<" << this->_name << "> attack " << target << ", causing ";
+	std::cout << C_PRPL<< "<" << this->_name << "> attack " << target << ", causing ";
 	std::cout << this->_attackdamage <<" damage!\n" << C_NRML;
 }
 
@@ -67,15 +67,15 @@ void	ScavTrap::takeDamage(unsigned int amount)
 {
 	if (this->_hitpoint == 0)
 	{
-		std::cout << "<" << _name << "> need repair. Already 0 HP" << std::endl;
+		std::cout << C_PRPL << "<" << _name << "> need repair. Already 0 HP" << C_NRML << std::endl;
 		return ;
 	}
-	std::cout << "<" << _name << "> take " << amount << " damage... ";
+	std::cout << C_PRPL << "<" << _name << "> take " << amount << " damage... ";
 	if (this->_hitpoint <= amount)
 		this->_hitpoint = 0;
 	else
 		this->_hitpoint -= amount;
-	std::cout << "<" << _name << ">\'s HP is " << _hitpoint << " point\n";
+	std::cout << "<" << _name << ">\'s HP is " << _hitpoint << " point\n" << C_NRML;
 }
 
 void	ScavTrap::beRepaired(unsigned int amount)
@@ -88,9 +88,9 @@ void	ScavTrap::guardGate()
 {
 	if (this->_hitpoint == 0)
 	{
-		std::cout << C_GREN<< "<" << _name << "> can't be GuardMode\n" << C_NRML;
+		std::cout << C_PRPL<< "<" << _name << "> can't be GuardMode\n" << C_NRML;
 		return;
 	}
 	this->_guardmode = 1;
-	std::cout << C_GREN << "<" << _name << "> GuardMode ON\n" << C_NRML;
+	std::cout << C_PRPL << "<" << _name << "> GuardMode ON\n" << C_NRML;
 }

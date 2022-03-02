@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: swang <swang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 14:24:48 by swang             #+#    #+#             */
-/*   Updated: 2022/02/12 23:10:27 by swang            ###   ########.fr       */
+/*   Updated: 2022/02/23 15:33:00 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,5 @@ void DiamondTrap::beRepaired(unsigned int amount)
 void DiamondTrap::whoAmI()
 {
 	std::cout << C_GREN << "My name is <" << _name << ">...  ";
-	std::cout << "ClapTrap name is <" << ClapTrap::_name << ">..." << C_NRML;
+	std::cout << "ClapTrap name is <" << ClapTrap::_name << ">..." << C_NRML << std::endl;
 }

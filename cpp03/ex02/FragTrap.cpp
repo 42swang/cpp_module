@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: swang <swang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 11:49:53 by swang             #+#    #+#             */
-/*   Updated: 2022/02/12 15:52:32 by swang            ###   ########.fr       */
+/*   Updated: 2022/03/01 20:11:33 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,27 +67,27 @@ void	FragTrap::highFivesGuys(void)
 
 void	FragTrap::attack(std::string const & target)
 {
-	std::cout << "<" << this->_name << "> attack " << target << ", causing ";
-	std::cout << this->_attackdamage <<" damage!\n";
+	std::cout << C_AQUA << "<" << this->_name << "> attack " << target << ", causing ";
+	std::cout << this->_attackdamage <<" damage!\n" << C_NRML;
 }
 
 void	FragTrap::takeDamage(unsigned int amount)
 {
 	if (this->_hitpoint == 0)
 	{
-		std::cout << "<" << _name << "> need repair. Already 0 HP" << std::endl;
+		std::cout << C_AQUA << "<" << _name << "> need repair. Already 0 HP" << C_NRML << std::endl;
 		return ;
 	}
-	std::cout << "<" << _name << "> take " << amount << " damage... ";
+	std::cout << C_AQUA << "<" << _name << "> take " << amount << " damage... ";
 	if (this->_hitpoint <= amount)
 		this->_hitpoint = 0;
 	else
 		this->_hitpoint -= amount;
-	std::cout << "<" << _name << ">\'s HP is " << _hitpoint << " point\n";
+	std::cout << "<" << _name << ">\'s HP is " << _hitpoint << " point\n" << C_NRML;
 }
 
 void	FragTrap::beRepaired(unsigned int amount)
 {
 	this->_hitpoint += amount;
-	std::cout << "<" << _name << "> " << amount << " point repaired. <" << _name << ">\'s HP is " << _hitpoint << " point\n";
+	std::cout << C_AQUA << "<" << _name << "> " << amount << " point repaired. <" << _name << ">\'s HP is " << _hitpoint << " point\n" << C_NRML;
 }

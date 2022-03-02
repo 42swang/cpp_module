@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: swang <swang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 11:44:04 by swang             #+#    #+#             */
-/*   Updated: 2022/02/12 23:10:50 by swang            ###   ########.fr       */
+/*   Updated: 2022/03/01 20:02:49 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 
 class FragTrap : public ClapTrap
 {
-private :
-
 public :
 	FragTrap();
 	~FragTrap();

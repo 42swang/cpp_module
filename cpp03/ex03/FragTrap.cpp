@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: swang <swang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 11:49:53 by swang             #+#    #+#             */
-/*   Updated: 2022/02/12 23:11:47 by swang            ###   ########.fr       */
+/*   Updated: 2022/02/19 16:17:16 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	FragTrap::highFivesGuys(void)
 		std::cout << C_AQUA << "I can't High-Five.. I need Repair...\n" << C_NRML;
 		return ;
 	}
-	std::cout << C_AQUA << "I Love You Guys! High-Five?!" << C_NRML << std::endl;
+	std::cout << C_AQUA << "<" << _name << "> I Love You Guys! High-Five?!" << C_NRML << std::endl;
 }
 
 void	FragTrap::attack(std::string const & target)

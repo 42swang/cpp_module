@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: swang <swang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:27:15 by swang             #+#    #+#             */
-/*   Updated: 2022/02/12 15:05:35 by swang            ###   ########.fr       */
+/*   Updated: 2022/02/23 15:37:30 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,36 @@
 
 int main()
 {
-	DiamondTrap d;
-	DiamondTrap dcopy(d);
-	DiamondTrap ft("ft");
+    // ClapTrap = yello
+    // ScavTrap = purple
+    // FragTrap = aqua
+    // DiamondTrap = green
 
-	//임시객체를 만든 공간에 three라는 이름을 붙임 대입 아님 선언에 가까움
-	//four가 이전에 만들어진게 아니라서 four에 three를 복사하는 복사 생성자 호출
-	d = DiamondTrap("d");
-	// 이건 d가 미리만들어져있으니까 대입오퍼레이터 호출
-	// 대입연산자함수는 d.operator=()형태니까 당연히 d라는 객체가 이미 생성되어있어야함
-	d.attack("cpp-moudule-03");
-	d.takeDamage(10);
-	d.beRepaired(10);
-	return (0);
+   	DiamondTrap diamond; //default constructor
+    std::cout << std::endl;
+
+    DiamondTrap diamond2("diamond2"); //name constructor
+    std::cout << std::endl;
+
+    DiamondTrap diamond3(diamond2); //copy constructor
+    std::cout << std::endl;
+
+    diamond = diamond3; //assignation operator
+    std::cout << std::endl;
+
+
+	//hp : fragtrap 100
+	//ep : scavtrap 50
+	//attack damege : fragtrap 30
+	//attack : scavtrap
+    diamond.attack("monster"); // call scavtrap's attack
+    std::cout << std::endl;
+    diamond.takeDamage(50); // call scavtrap's takeDamage
+    std::cout << std::endl;
+    diamond.guardGate(); //scavtrap
+    std::cout << std::endl;
+    diamond.highFivesGuys(); //fragtrap
+    std::cout << std::endl;
+    diamond.whoAmI(); //diamond + claptrap;
+    std::cout << std::endl;
 }
