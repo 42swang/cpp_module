@@ -9,7 +9,7 @@ int main()
 	const WrongAnimal* j = new WrongDog();
 	std::cout << C_YLLW << i->getType() << " " << std::endl << C_NRML;
 	std::cout << C_BLUE << j->getType() << " " << std::endl << C_NRML;
-	i->makeSound(); //will output the WrongCat sound!
+	i->makeSound();
 	j->makeSound();
 	meta->makeSound();
 	delete meta;
