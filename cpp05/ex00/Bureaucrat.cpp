@@ -7,22 +7,22 @@ Bureaucrat::Bureaucrat() : _name("unknown"), _grade(150)
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
+	std::cout << GREEN << "Bureaucrat constructor(" << name << ") called\n" << EOC;
 	if (grade < 1)
 		throw GradeTooHighException();
 	else if (grade > 150)
 		throw GradeTooLowException();
-	std::cout << GREEN << "Bureaucrat constructor(parameter) called\n" << EOC;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& copy)
 {
-	std::cout << GREEN << "Bureaucrat copy constructor called\n" << EOC;
+	std::cout << GREEN << "Bureaucrat(" << this->_name <<") copy constructor called\n" << EOC;
 	*this = copy;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& copy)
 {
-	std::cout << GREEN << "Bureaucrat operator= called\n" << EOC;	
+	std::cout << GREEN << "Bureaucrat(" << this->_name << ") operator= called\n" << EOC;	
 	if (this == &copy)
 		return(*this);
 	this->_grade = copy.getGrade();
@@ -31,11 +31,12 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& copy)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << GREEN << "Bureaucrat default destructor called\n" << EOC;
+	std::cout << GREEN << "Bureaucrat(" << this->_name << ") default destructor called\n" << EOC;
 }
 
 void	Bureaucrat::increaseGrade(int amount)
 {
+	std::cout << GREEN << "Bureaucrat(" << this->_name << ") increaseGrade\n" << EOC;
 	if ((this->_grade) > amount)
 		this->_grade -= amount;
 	else
@@ -44,6 +45,7 @@ void	Bureaucrat::increaseGrade(int amount)
 
 void	Bureaucrat::decreaseGrade(int amount)
 {
+	std::cout << GREEN << "Bureaucrat(" << this->_name << ") decreaseGrade\n" << EOC;
 	if ((this->_grade) + amount > 150)
 		throw GradeTooLowException();
 	else
