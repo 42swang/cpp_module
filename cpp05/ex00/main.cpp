@@ -26,7 +26,7 @@ int main(void)
 		Bureaucrat b2("b2", 1);
 		b1.decreaseGrade(140);
 		b1.decreaseGrade(1);
-		b2.increaseGrade(140); // 못들어감
+		b2.increaseGrade(140); // b2는 생성자가 호출이 잘되었고 그 이후 스택이 반환됨
 		//b1.increaseGrade(10);
 		//b1.decreaseGrade(150);
 	}
