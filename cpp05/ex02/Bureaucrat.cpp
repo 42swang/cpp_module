@@ -5,11 +5,11 @@ void Bureaucrat::signForm(Form & form)
 	try
 	{
 		form.beSigned(*this);
-		std::cout << "<" << this->_name << "> signed <" << form.getName() << ">\n";
+		std::cout << GREEN << "<" << this->_name << "> signed <" << form.getName() << ">\n" << EOC;
 	}
 	catch(const std::exception& e) //여기서 e.what()이 가상함수라서 포인터 객체 클래스가 달라도 찾아감 (상속관계)
 	{
-		std::cout << "<" << this->_name << "> couldn’t sign <" << form.getName() << "> because <" << e.what() << ">.\n";
+		std::cout << RED << "<" << this->_name << "> couldn’t sign <" << form.getName() << "> because <" << e.what() << ">.\n" << EOC;
 	}
 }
 
@@ -18,11 +18,11 @@ void Bureaucrat::executeForm(Form & form)
 	try
 	{
 		form.execute(*this);
-		std::cout << "<" << this->_name << "> execute <" << form.getName() << ">\n";
+		std::cout << GREEN <<"<" << this->_name << "> execute <" << form.getName() << ">\n" << EOC;
 	}
 	catch(const std::exception& e) //여기서 e.what()이 가상함수라서 포인터 객체 클래스가 달라도 찾아감 (상속관계)
 	{
-		std::cout << "<" << this->_name << "> couldn’t sign <" << form.getName() << "> because <" << e.what() << ">.\n";
+		std::cout << RED << "<" << this->_name << "> couldn’t sign <" << form.getName() << "> because <" << e.what() << ">.\n" << EOC;
 	}
 }
 
