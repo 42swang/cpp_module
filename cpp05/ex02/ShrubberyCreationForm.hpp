@@ -8,8 +8,8 @@
 #include <fstream>
 #include "Form.hpp"
 
-#define EXEC 137
-#define SIGN 145
+#define S_EXEC 137
+#define S_SIGN 145
 
 
 class ShrubberyCreationForm : public Form
@@ -17,13 +17,13 @@ class ShrubberyCreationForm : public Form
 private:
 	std::string _target;
 public:
-	std::string getTarget();
+	std::string getTarget() const;
 	ShrubberyCreationForm();
 	~ShrubberyCreationForm();
 	ShrubberyCreationForm(std::string target);
 	ShrubberyCreationForm(const ShrubberyCreationForm & copy);
 	ShrubberyCreationForm & operator=(const ShrubberyCreationForm & copy);
-	void execute(const Bureaucrat& bureaucrat);
+	void execute(const Bureaucrat& bureaucrat) const;
 };
 
 #endif

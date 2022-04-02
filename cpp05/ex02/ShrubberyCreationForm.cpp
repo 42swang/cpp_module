@@ -1,8 +1,7 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : Form("Shru_form", SIGN, EXEC), _target("default")
+ShrubberyCreationForm::ShrubberyCreationForm() : Form("Shru_form", S_SIGN, S_EXEC), _target("default")
 {
-
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
@@ -10,17 +9,17 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("Shru_form", SIGN, EXEC), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("Shru_form", S_SIGN, S_EXEC), _target(target)
 {
 
 }
 
-std::string ShrubberyCreationForm::getTarget()
+std::string ShrubberyCreationForm::getTarget() const
 {
 	return(this->_target);
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & copy) : Form(copy.getName(), copy.getSignGrade(), copy.getExecuteGrade()), _target(copy._target)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & copy) : Form("Shru_form", S_SIGN, S_EXEC), _target(copy._target)
 {}
 
 ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreationForm & copy)
@@ -32,7 +31,7 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreation
 	return (*this);
 }
 
-void ShrubberyCreationForm::execute(const Bureaucrat& bureaucrat)
+void ShrubberyCreationForm::execute(const Bureaucrat& bureaucrat) const
 {
 	if (bureaucrat.getGrade() > this->getExecuteGrade())
 		throw Form::GradeTooHighException();
