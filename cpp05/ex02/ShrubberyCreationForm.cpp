@@ -33,6 +33,8 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreation
 
 void ShrubberyCreationForm::execute(const Bureaucrat& bureaucrat) const
 {
+	if (this->isSigned() == false)
+		throw Form::NotSignedException();
 	if (bureaucrat.getGrade() > this->getExecuteGrade())
 		throw Form::GradeTooHighException();
 	else
