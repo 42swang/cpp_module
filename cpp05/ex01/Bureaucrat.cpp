@@ -1,58 +1,54 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name("unknown"), _grade(150)
+void Bureaucrat::signForm(Form & form)
 {
-	std::cout << GREEN << "Bureaucrat default constructor called\n" << EOC;
+	try
+	{
+		form.beSigned(*this);
+		std::cout << "<" << this->_name << "> signed <" << form.getName() << ">\n";
+	}
+	catch(const std::exception& e) //여기서 e.what()이 가상함수라서 포인터 객체 클래스가 달라도 찾아감 (상속관계)
+	{
+		std::cout << "<" << this->_name << "> couldn’t sign <" << form.getName() << "> because <" << e.what() << ">.\n";
+	}
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
+std::ostream&	operator<<(std::ostream& out, const Bureaucrat & b)
 {
-	std::cout << GREEN << "Bureaucrat constructor(" << name << ") called\n" << EOC;
+	out << "<" << b.getName() << ">, " << "bureaucrat grade <" << b.getGrade() << ">.\n";
+	return out;
+}
+
+Bureaucrat::Bureaucrat() : _name("_default"), _grade(150)
+{
+}
+
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
+{
+	if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
 	if (grade < 1)
-		throw GradeTooHighException();
-	else if (grade > 150)
-		throw GradeTooLowException();
+		throw Bureaucrat::GradeTooHighException();
+	this->_grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& copy)
+Bureaucrat::Bureaucrat(const Bureaucrat& copy) : _name(copy._name)
 {
-	std::cout << GREEN << "Bureaucrat(" << this->_name <<") copy constructor called\n" << EOC;
 	*this = copy;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& copy)
 {
-	std::cout << GREEN << "Bureaucrat(" << this->_name << ") operator= called\n" << EOC;	
 	if (this == &copy)
 		return(*this);
-	this->_grade = copy.getGrade();
+	this->_grade = copy._grade;
 	return(*this);
 }
 
 Bureaucrat::~Bureaucrat()
-{
-	std::cout << GREEN << "Bureaucrat(" << this->_name << ") default destructor called\n" << EOC;
-}
+{}
 
-void	Bureaucrat::increaseGrade(int amount)
-{
-	std::cout << GREEN << "Bureaucrat(" << this->_name << ") increaseGrade\n" << EOC;
-	if ((this->_grade) > amount)
-		this->_grade -= amount;
-	else
-		throw GradeTooHighException();
-}
-
-void	Bureaucrat::decreaseGrade(int amount)
-{
-	std::cout << GREEN << "Bureaucrat(" << this->_name << ") decreaseGrade\n" << EOC;
-	if ((this->_grade) + amount > 150)
-		throw GradeTooLowException();
-	else
-		this->_grade += amount;
-}
-
-const std::string Bureaucrat::getName() const
+std::string Bureaucrat::getName() const
 {
 	return(this->_name);
 }
@@ -62,29 +58,22 @@ int Bureaucrat::getGrade() const
 	return(this->_grade);
 }
 
-std::ostream&	operator<<(std::ostream& out, const Bureaucrat& b)
+void	Bureaucrat::increaseGrade(int amount)
 {
-	out << "name: " << b.getName() << "\ngrade: " << b.getGrade() << std::endl;
-
-	return (out);
+	int grade;
+	grade = this->_grade - amount;
+	if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	this->_grade = grade;
 }
+// 승진
 
-void	Bureaucrat::beSinged(std::string f_name, int f_grade)
+void	Bureaucrat::decreaseGrade(int amount)
 {
-	Form form(f_name, f_grade);
-	signForm(form);
+	int grade;
+	grade = this->_grade + amount;
+	if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	this->_grade = grade;
 }
-
-void	Bureaucrat::signForm(Form& f)
-{
-	if (this->_grade > f.getRequireGrade())
-	{
-		std::cout << RED << "<" << this->_name << "> cannot sign <" << f.getName() << "> because <form require grade too high\n" << EOC;
-		throw Form::GradeTooHighException();
-	}
-	else
-	{
-		f.setSign();
-		std::cout << RED << "<" << this->_name << "> signs <" << f.getName() << ">.\n" << EOC;
-	}
-}
+// 좌천

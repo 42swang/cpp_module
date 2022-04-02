@@ -1,57 +1,71 @@
 #include "Form.hpp"
 
-Form::Form() : _name("default"), _require_grade(1), _sign(false)
+std::ostream&	operator<<(std::ostream& out, const Form & form)
 {
-	std::cout << ITALIC << "Form default constructor called\n" << EOC;
+	out << "<" << form.getName() << ": ";
+	if (form.isSigned())
+		out << "signed";
+	else
+		out << "not signed";
+	out << "> require grade to sign: " << form.getSignGrade() << " require grade to execute: " << form.getExecuteGrade() << std::endl;
+	return out;
 }
 
-Form::~Form()
+void	Form::beSigned(const Bureaucrat & bureaucrat)
 {
-	std::cout << ITALIC << "Form default destructor called\n" << EOC;
-}
-
-Form::Form(const Form& copy) : _name(copy._name), _require_grade(copy._require_grade), _sign(copy._sign)
-{
-	std::cout << ITALIC << "Form(" << this->_name <<") default copy constructor called\n" << EOC;
-}
-
-Form::Form(std::string name, int require_grade) : _name(name), _require_grade(require_grade), _sign(false)
-{
-	std::cout << ITALIC << "Form(" << this->_name <<") constructor(parameter) called\n" << EOC;
-}
-
-Form& Form::operator=(const Form& copy)
-{
-	std::cout << ITALIC << "Form(" << this->_name <<") operator= called\n" << EOC;
-	if (this == &copy)
-		return(*this);
-	this->_sign = copy._sign;
-	return(*this);
-}
-
-void Form::setSign()
-{
-	this->_sign = true;
-}
-
-
-bool Form::getSign() const
-{
-	return (this->_sign);
+	if (bureaucrat.getGrade() > this->_sign_grade)
+		throw Form::GradeTooHighException();
+	else if (this->isSigned() == true)
+		throw Form::AlreadySignedException();
+	else
+		this->_signed = true;
 }
 
 const std::string Form::getName() const
 {
-	return (this->_name);
+	return(this->_name);
 }
 
-int Form::getRequireGrade() const
+const int Form::getSignGrade() const
 {
-	return (this->_require_grade);
+	return(this->_sign_grade);
 }
 
-std::ostream&	operator<<(std::ostream& out, const Form& b)
+const int Form::getExecuteGrade() const
 {
-	out << ITALIC << "Form: " << b.getName() << ", Require Grade: " << b.getRequireGrade() << ", Sign : " << b.getSign() << std::endl << EOC;
-	return (out);
+	return(this->_execute_grade);
+}
+
+bool Form::isSigned() const
+{
+	return(this->_signed);
+}
+
+Form::Form() : _name("default_form"), _sign_grade(150), _execute_grade(150), _signed(false)
+{}
+
+Form::~Form()
+{}
+
+Form::Form(const Form& copy) : _name(copy._name), _sign_grade(copy._sign_grade), _execute_grade(copy._execute_grade), _signed(copy._signed)
+{}
+
+Form::Form(std::string name, int sign_grade, int execute_grade) : _name(name), _sign_grade(sign_grade), _execute_grade(execute_grade), _signed(false)
+{
+	if(this->_sign_grade > 150)
+		throw Form::GradeTooLowException();
+	else if(this->_sign_grade < 1)
+		throw Form::GradeTooHighException();
+	else if(this->_execute_grade > 150)
+		throw Form::GradeTooLowException();
+	else if(this->_execute_grade < 1)
+		throw Form::GradeTooHighException();
+}
+
+Form& Form::operator=(const Form& other)
+{
+	if (this == &other)
+		return(*this);
+	this->_signed = other._signed;
+	return *this;
 }

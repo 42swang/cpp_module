@@ -1,5 +1,9 @@
 #ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
+
+#include <iostream>
+#include <exception>
+#include "Form.hpp"
 
 # define RED    "\033[0;31m"
 # define GREEN  "\033[0;32m"
@@ -10,9 +14,7 @@
 # define EOC    "\033[0;0m"
 # define ITALIC "\033[3m"
 
-#include <iostream>
-#include <exception>
-#include "Form.hpp"
+class Form;
 
 class Bureaucrat
 {
@@ -21,35 +23,35 @@ private:
 	int _grade;
 public:
 	Bureaucrat();
-	Bureaucrat(std::string name, int grade);
 	Bureaucrat(const Bureaucrat& copy);
+	Bureaucrat(std::string name, int grade);
 	Bureaucrat& operator=(const Bureaucrat& copy);
 	~Bureaucrat();
-	void	beSinged(std::string f_name, int f_grade);
-	void	signForm(Form& f);
-	void	increaseGrade(int amount);
-	void	decreaseGrade(int amount);
-	const std::string getName() const;
+	std::string getName() const;
 	int getGrade() const;
+	void	increaseGrade(int amount);
+	// 승진
+	void	decreaseGrade(int amount);
+	// 좌천
 	class GradeTooHighException : public std::exception
 	{
-		public:
+	public:
 		const char * what() const throw()
 		{
-			return("grade too high\n");	
+			return("Bureaucrat grade too high!\n");
 		};
 	};
-	class	GradeTooLowException : public std::exception
+	class GradeTooLowException : public std::exception
 	{
-		public:
+	public:
 		const char * what() const throw()
 		{
-			return("grade too low\n");	
+			return("Bureaucrat grade too low!\n");
 		};
 	};
+	void signForm(Form & form);
 };
 
-std::ostream&	operator<<(std::ostream& out, const Bureaucrat& b);
-
+std::ostream&	operator<<(std::ostream& out, const Bureaucrat & b);
 
 #endif

@@ -1,44 +1,53 @@
 #ifndef FORM_HPP
-# define FORM_HPP
+#define FORM_HPP
 
-# define ITALIC "\033[3m"
-# define EOC    "\033[0;0m"
-
+#include "Bureaucrat.hpp"
 #include <iostream>
 #include <exception>
+
+class Bureaucrat;
 
 class Form
 {
 private:
 	const std::string _name;
-	const int _require_grade;
-	bool _sign;
+	const int _sign_grade;
+	const int _execute_grade;
+	bool _signed;
 public:
+	const std::string getName() const;
+	const int getSignGrade() const;
+	const int getExecuteGrade() const;
+	bool isSigned() const;
 	Form();
 	~Form();
 	Form(const Form& copy);
-	Form& operator=(const Form& copy);
-	Form(std::string name, int require_grade);
-	void setSign();
-	bool getSign() const;
-	const std::string getName() const;
-	int getRequireGrade() const;
-	class GradeTooHighException : public std::exception
+	Form(std::string name, int sign_grade, int execute_grade);
+	Form& operator=(const Form& other);
+	class AlreadySignedException : public std::exception
 	{
-		virtual const char* what() const throw()
+		const char* what() const throw()
 		{
-			return("exception: form require grade too high than bureaucrat's grade\n");
+			return("Form already signed!");
 		};
 	};
 	class GradeTooLowException : public std::exception
 	{
-		virtual const char* what() const throw()
+		const char* what() const throw()
 		{
-			return("이런경우가 있나?\n");
+			return("Form grade too Low!");
 		};
 	};
+	class GradeTooHighException : public std::exception
+	{
+		const char* what() const throw()
+		{
+			return("Form grade too High!");
+		};
+	};
+	void beSigned(const Bureaucrat& bureaucrat);
 };
 
-std::ostream&	operator<<(std::ostream& out, const Form& b);
+std::ostream&	operator<<(std::ostream& out, const Form & form);
 
 #endif
