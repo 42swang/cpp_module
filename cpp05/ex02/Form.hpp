@@ -46,7 +46,7 @@ public:
 		};
 	};
 	void beSigned(const Bureaucrat& bureaucrat);
-	virtual void execute(const Bureaucrat& bureaucrat) = 0;
+	virtual void execute(const Bureaucrat& bureaucrat) const = 0;
 };
 
 std::ostream&	operator<<(std::ostream& out, const Form & form);
