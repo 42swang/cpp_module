@@ -1,5 +1,23 @@
 #include "Intern.hpp"
 
+Intern::Intern()
+{}
+
+Intern::~Intern()
+{}
+
+Intern::Intern(const Intern& copy)
+{
+	*this = copy;
+}
+
+Intern& Intern::operator=(const Intern& origin)
+{
+	if (this == &origin)
+		return *this;
+	return *this;
+}
+
 Form * Intern::makeForm(std::string form_name, std::string target)
 {
 	std::string request[3] = {"robotomy request", "presidential pardon", "shrubbery creation"};

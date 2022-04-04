@@ -10,6 +10,10 @@
 class Intern
 {
 public:
+	Intern();
+	~Intern();
+	Intern(const Intern& copy);
+	Intern& operator=(const Intern& origin);
 	Form * makeForm(std::string form_name, std::string target);
 	class NotFoundFormNameException : public std::exception
 	{
