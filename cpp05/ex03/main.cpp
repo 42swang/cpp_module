@@ -29,7 +29,7 @@ int main(void)
 	delete a;
 	delete b;
 	delete c;
-	//system("leaks Form");
+	system("leaks ex03");
 	return 0;
 
 	//인턴이 만든 서류에 사인하고 실행하는거 예외처리 추가해야하나?
