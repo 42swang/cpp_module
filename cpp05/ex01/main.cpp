@@ -46,24 +46,25 @@ int main(void)
 	std::cout << std::endl;
 	
 	std::cout << "------------- Sign exception check ------------\n";
-	Bureaucrat b1("b1", 90);
-	Form f1("f1", 130, 80); //Sign 가능
-	std::cout << f1 << std::endl;
-	Form f2("f2", 10, 5); //Sign 불가능
-	std::cout << f2 << std::endl;
 	try
 	{
+		Bureaucrat b1("b1", 90);
+		Form f1("f1", 130, 80); //Sign 가능
+		std::cout << f1 << std::endl;
+		Form f2("f2", 10, 5); //Sign 불가능
+		std::cout << f2 << std::endl;
+
 		b1.signForm(f1); //정상실행
+		std::cout << std::endl;
 		b1.signForm(f1); //exception->alreadysigned
+		std::cout << std::endl;
 		b1.signForm(f2); //exception->gradeistoolow
+		std::cout << std::endl;
 	}
-	catch (std::exception & e)
+	catch(std::exception & e)
 	{
 		std::cout << RED << e.what() << EOC << std::endl;
 	}
-	std::cout << std::endl;
-	std::cout << std::endl;
-	
 	system("leaks ex01");
 	return 0;
 }

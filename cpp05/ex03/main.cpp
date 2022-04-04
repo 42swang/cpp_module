@@ -7,8 +7,9 @@
 
 int main(void)
 {
+	//인턴테스트를 위해 정상적으로 생성
 	Intern intern;
-	Bureaucrat b1("rachel", 1);
+	Bureaucrat b1("rachel", 1); 
 	Form *a = intern.makeForm("shrubbery creation", "home");
 	Form *b = intern.makeForm("robotomy request", "amy");
 	Form *c = intern.makeForm("presidential pardon", "bob");
@@ -22,6 +23,7 @@ int main(void)
 	{
 		Form *d = intern.makeForm("aaaaaaa", "bob");
 		b1.signForm(*d);
+		std::cout << std::endl;
 	}
 	catch (std::exception &e)
 	{
@@ -32,6 +34,4 @@ int main(void)
 	delete c;
 	system("leaks ex03");
 	return 0;
-
-	//인턴이 만든 서류에 사인하고 실행하는거 예외처리 추가해야하나?
 }
