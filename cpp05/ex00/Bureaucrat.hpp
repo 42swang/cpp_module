@@ -24,7 +24,7 @@ public:
 	Bureaucrat(std::string name, int grade);
 	Bureaucrat& operator=(const Bureaucrat& copy);
 	~Bureaucrat();
-	std::string getName() const;
+	const std::string getName() const;
 	int getGrade() const;
 	void	increaseGrade(int amount);
 	// 승진

@@ -21,6 +21,7 @@ int main(void)
 	try
 	{
 		Form *d = intern.makeForm("aaaaaaa", "bob");
+		b1.signForm(*d);
 	}
 	catch (std::exception &e)
 	{

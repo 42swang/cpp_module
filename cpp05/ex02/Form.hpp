@@ -16,8 +16,8 @@ private:
 	bool _signed;
 public:
 	const std::string getName() const;
-	const int getSignGrade() const;
-	const int getExecuteGrade() const;
+	int getSignGrade() const;
+	int getExecuteGrade() const;
 	bool isSigned() const;
 	Form();
 	virtual ~Form();

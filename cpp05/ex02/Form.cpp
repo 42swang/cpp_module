@@ -26,12 +26,12 @@ const std::string Form::getName() const
 	return(this->_name);
 }
 
-const int Form::getSignGrade() const
+int Form::getSignGrade() const
 {
 	return(this->_sign_grade);
 }
 
-const int Form::getExecuteGrade() const
+int Form::getExecuteGrade() const
 {
 	return(this->_execute_grade);
 }
