@@ -30,7 +30,7 @@ void identify(Base* p)
 	else if (dynamic_cast<C *>(p))
 		std::cout << "actual type of the object pointed to by p: C\n";
 	else
-		std::cout << "Error : Check Base *p\n";
+		std::cout << "Error\n";
 }
 
 void identify(Base& p)

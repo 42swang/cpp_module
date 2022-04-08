@@ -19,5 +19,5 @@ int main(void)
     std::cout << "[value] : " << deserialize_ptr->_value << std::endl;
     std::cout << std::endl;
     delete data_ptr;
-    system("leaks serial");
+   // system("leaks serial");
 }

@@ -9,9 +9,9 @@ class ConversionScalar
 {
 private:
 	double _value;
-	bool _isnan;
-	bool _isinf;
 	bool _ischar;
+	bool _isinf;
+	bool _isnan;
 	bool _isprint;
 public:
 	ConversionScalar();
@@ -23,20 +23,14 @@ public:
 	void toChar() const;
 	void toInt() const;
 	void toFloat() const;
-	class Exception : public std::exception
+	class ExceptCase : public std::exception
 	{
 	private:
 		std::string _msg;
 	public:
-		Exception(std::string msg)
-		{
-			_msg = msg;
-		};
-		~Exception() throw() {};
-		const char* what() const throw()
-		{
-			return (_msg.c_str());
-		}
+		ExceptCase(std::string msg);
+		~ExceptCase() throw();
+		const char* what() const throw();
 	};
 };
 
