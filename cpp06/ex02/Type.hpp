@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
 # define RED    "\033[0;31m"
 # define EOC    "\033[0;0m"
