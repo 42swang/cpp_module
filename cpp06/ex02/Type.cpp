@@ -1,4 +1,7 @@
 #include "Type.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
 Base * generate(void)
 {
@@ -23,13 +26,17 @@ Base * generate(void)
 
 void identify(Base* p)
 {
-	if (dynamic_cast<A *>(p))
+	A *typeA = dynamic_cast<A *>(p);
+	B *typeB = dynamic_cast<B *>(p);
+	C *typeC = dynamic_cast<C *>(p);
+
+	if (typeA != 0)
 		std::cout << "actual type of the object pointed to by p: A\n";
-	else if (dynamic_cast<B *>(p))
+	else if (typeB != 0)
 		std::cout << "actual type of the object pointed to by p: B\n";
-	else if (dynamic_cast<C *>(p))
+	else if (typeC != 0)
 		std::cout << "actual type of the object pointed to by p: C\n";
-	else
+	else if (typeA == 0 && typeB == 0 && typeC == 0)
 		std::cout << "Error\n";
 }
 
@@ -42,6 +49,7 @@ void identify(Base& p)
 	}
 	catch(const std::exception& e)
 	{
+		std::cout << RED << e.what() << ": not A type\n" << EOC;
 	}
 	try
 	{
@@ -50,6 +58,7 @@ void identify(Base& p)
 	}
 	catch(const std::exception& e)
 	{
+		std::cout << RED << e.what() << ": not B type\n" << EOC;
 	}
 	try
 	{
@@ -58,5 +67,6 @@ void identify(Base& p)
 	}
 	catch(const std::exception& e)
 	{
+		std::cout << RED << e.what() << ": not C type\n" << EOC;
 	}
 }

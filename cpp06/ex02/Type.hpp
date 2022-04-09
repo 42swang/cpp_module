@@ -2,31 +2,11 @@
 #define TYPE_HPP
 
 #include <iostream>
+#include "Base.hpp"
 
-class Base
-{
-public:
-	virtual ~Base() {};
-};
-
-class A : public Base
-{
-public:
-	~A() {};
-};
-
-class B : public Base
-{
-public:
-	~B() {};
-
-};
-
-class C : public Base
-{
-public:
-	~C() {};
-};
+# define RED    "\033[0;31m"
+# define EOC    "\033[0;0m"
+# define GREEN  "\033[0;32m"
 
 Base * generate(void);
 void identify(Base* p);
