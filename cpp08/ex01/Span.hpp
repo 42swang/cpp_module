@@ -29,6 +29,7 @@ public:
 	void addNumber(std::vector<int>::iterator const &begin, std::vector<int>::iterator const &end);
 	
 	unsigned int getSize() const;
+	std::vector<int> getVec() const;
 	void printVec() const;
 
 	class BeFullException: public std::exception

@@ -28,6 +28,11 @@ void Span::printVec() const
 	std::cout << "\n----------------------\n";
 }
 
+std::vector<int> Span::getVec() const
+{
+	return _container;
+}
+
 unsigned int Span::getSize() const
 {
 	return _max_size;
@@ -68,8 +73,7 @@ long Span::longestSpan() const
 	// 원본 보호
 	std::vector<int> v = _container;
 	std::sort(v.begin(), v.end());
-	long long_span = std::distance(v.begin(), v.end());
-	this->printVec();
+	long long_span = v.back() - v.front();
 	return (long_span);
 }
 
@@ -83,9 +87,8 @@ void Span::addNumber(int num)
 void Span::addNumber(std::vector<int>::iterator const &begin, std::vector<int>::iterator const &end)
 {
 	unsigned int add_len = std::distance(begin, end);
-	if (add_len + _container.size() > _max_size)
+	if (add_len + static_cast<unsigned int>(_container.size()) > _max_size)
 		throw BeFullException();
-	_max_size += add_len;
 	_container.insert(_container.end(), begin, end);
 }
 
