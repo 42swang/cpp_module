@@ -14,7 +14,7 @@ class Span
 {
 private:
 	unsigned int _max_size;
-	std::vector<int> _container; // n개만큼 동적할당
+	std::vector<int> _container; 
 	Span();
 public:
 	Span(unsigned int N);

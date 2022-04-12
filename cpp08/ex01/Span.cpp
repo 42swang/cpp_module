@@ -73,7 +73,7 @@ long Span::longestSpan() const
 	// 원본 보호
 	std::vector<int> v = _container;
 	std::sort(v.begin(), v.end());
-	long long_span = v.back() - v.front();
+	long long_span = static_cast<long>(v.back()) - static_cast<long>(v.front());
 	return (long_span);
 }
 
